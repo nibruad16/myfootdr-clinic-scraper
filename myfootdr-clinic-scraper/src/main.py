@@ -8,10 +8,16 @@ def main():
     parser = Parser()
     
     # Example usage
-    links = crawler.discover_links("http://example.com")
-    data = parser.parse_html("<html></html>")
+    links = crawler.discover_links()
     
-    print("Scraping completed.")
+    print(f"Discovered {len(links)} links. Printing first 5:")
+    for link in links[:5]:
+        print(link)
+    
+    # Placeholder for parsing
+    # for link in links:
+    #     html = crawler.fetch_page(link)
+    #     data = parser.parse_html(html)
 
 if __name__ == "__main__":
     main()

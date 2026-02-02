@@ -1,14 +1,11 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-
-# Virtual Environment
+# Environments
 venv/
-env/
 .env
 
 # Data and Logs
-data/
-logs/
-*.log
+data/*.csv
+logs/*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
