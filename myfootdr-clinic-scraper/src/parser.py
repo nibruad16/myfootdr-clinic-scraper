@@ -18,7 +18,7 @@ class Parser:
 
             address = soup.find('address')
 
-            address = address_tag.get_text(separator=" ", strip=True) if address_tag else "N/A"
+            address = address.get_text(separator=" ", strip=True) if address_tag else "N/A"
 
             phone = "N/A"
 

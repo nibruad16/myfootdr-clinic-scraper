@@ -24,7 +24,7 @@ def get_clinic_links(self):
         for a_tag in soup.find_all('a',href=True):
             href = a_tag['href']
 
-            if '/our-clinics/' in href and href.endswith('/our-clinics/'):
+            if '/our-clinics/' in href and not href.endswith('/our-clinics/'):
                 full_url = self.base_url + href if href.startswith('/') else href
                 links.append(full_url)
 
