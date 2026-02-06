@@ -19,13 +19,18 @@ def run_scraper():
 
         data = Parser.scrape_details(link)
 
-        all_data.append(data)
-
+        # Only append if data was successfully scraped
+        if data is not None:
+            all_data.append(data)
+    
         time.sleep(1.5)
 
-        df = pd.DataFrame(all_data)
-
-        df.to_csv('data/myfootdr_clinics.csv', index=False)
+        # Filter out any None values and save progress
+        valid_data = [d for d in all_data if d is not None]
+        
+        if valid_data:  # Only create CSV if we have valid data
+            df = pd.DataFrame(valid_data)
+            df.to_csv('data/clinics_data.csv', index=False)
 
 if __name__ == "__main__":
     run_scraper()
